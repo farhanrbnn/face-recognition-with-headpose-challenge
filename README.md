@@ -11,12 +11,16 @@ face recognition for door access security system that works on Raspberry Pi. usi
 1. Raspberry Pi 4 Model B 
 2. Webcam Logitech C270 
 
+## Project Schematic
+<img src="example-image/skematik.png">
+
 ## How To Use
 1. first you need a face dataset of person. each person has 3 image (frontal face, 30 degrees look to the right and left). and save them to pickle file.
    <!-- ![alt text](example-image/1.jpg)  -->
-   <img src="example-image/1.jpg" width="100" height="50">
-   <img src="example-image/2.jpg" width="100" height="50">
-   <img src="example-image/3.jpg" width="100" height="50">
+   <img src="example-image/1.jpg" width="150" height="50">
+   <img src="example-image/2.jpg" width="150" height="50">
+   <img src="example-image/3.jpg" width="150" height="50">
+
 ### owner
 - Farhan Rabbaanii - farhanrbnn@gmail.com
 - Redho Bukhari Nasza - bukhari.nasza@gmail.com
