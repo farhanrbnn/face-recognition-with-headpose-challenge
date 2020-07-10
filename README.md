@@ -14,7 +14,9 @@ face recognition for door access security system that works on Raspberry Pi. usi
 ## How To Use
 1. first you need a face dataset of person. each person has 3 image (frontal face, 30 degrees look to the right and left). and save them to pickle file.
    <!-- ![alt text](example-image/1.jpg)  -->
-   <img src="example-image/1.jpg" width="100" height="100">
+   <img src="example-image/1.jpg" width="1000" height="1000">
+   <img src="example-image/2.jpg" width="1000" height="1000">
+   <img src="example-image/3.jpg" width="1000" height="1000">
 
 ### owner
 - Farhan Rabbaanii - farhanrbnn@gmail.com
