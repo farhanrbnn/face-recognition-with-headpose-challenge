@@ -34,7 +34,7 @@ face recognition for door access security system that works on Raspberry Pi. usi
 ### Demo
 
    <img src="example-image/demo.png" width="300" height="250">
-   ![alt text](example-image/demo-2.gif) 
+   <img src="example-image/demo-2.gif"> 
 
 ### owner
 - Farhan Rabbaanii - farhanrbnn@gmail.com
