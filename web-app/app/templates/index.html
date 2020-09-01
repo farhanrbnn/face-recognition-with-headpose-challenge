@@ -1,0 +1,37 @@
+{% include 'base.html' %}
+
+{% block body %}
+<div class="container">
+	<div class="justify-content-md-center">
+		<div class="pr-0" id="webcam"></div>
+			<!-- <input type=button value="Take Snapshot" class="btn btn-primary pull-right" onClick="take_snapshot()"> -->			
+			<!-- <input type="hidden" name="image_one" class="image-tag"> -->
+			<!-- <input type="hidden" name="image" class="image-tag"> -->
+			<!-- <input type="hidden" name="image" class="image-tag"> -->
+			<!-- <a href="/employees/encode" class="btn btn-md btn-primary" id="results" onclick="take_snapshot()">Capture</a> -->
+			<button class="btn btn-md btn-primary mb-2" id="results" onClick="take_snapshot()">capture</button>	
+	</div>
+	<form action="/employees" method="POST">
+		<div class="mb-2">
+			<input type="text" name="image" class="image-tag-one">
+			<input type="text" name="image-two" class="image-tag-two">
+			<input type="text" name="image-three" class="image-tag-three">
+		</div>
+		<div class="form-group">
+			<label   for="input-name">Name</label>
+			<input id="nama" type="text" class="form-control" name="nama" id="input-name" autocomplete="off">	
+		</div>
+		<div class="form-group">
+			<label for="input-nik">Employee ID</label>
+			<input id="nik" type="text" class="form-control" name="nik" id="input-nik" autocomplete="off">	
+		</div>
+		<div class="form-group">
+			<label for="input-jabatan">Position</label>
+			<input id="jabatan" type="text" class="form-control" name="jabatan" id="input-jabatan" autocomplete="off">	
+		</div>
+		<button id="send-data" class="btn btn-primary" onClick="getName()">Submit</button>
+	</form>
+	<!-- <button id="test" class="btn btn-danger">test</button> -->
+</div>
+<script type="text/javascript" src="{{ url_for('static', filename='js/form.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,19 @@
+
+{% include 'base.html' %}
+
+{% block body %}
+
+<div>
+	<div class="container mt-5" id="detail-container">
+		<h3>Employees Detail</h3>
+		{% for employee in employees %}
+		<h4>{{ employee.nama }}</h4>
+		<img id="employee-photo" src="{{ employee.image }}">
+		<li>Nomor Induk Karyawan: {{ employee.nik }}</li>
+		<li>Jabatan: {{ employee.jabatan }}</li>
+		{% endfor %}
+	</div>
+</div>
+
+ {% endblock %}
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/greet_style.css') }}">
+</head>
+<body>
+<div class="container-fluid">
+	<div class="row justify-content-sm-center">
+		<div class="col-md-6">
+			<!-- <h2>Access Granted</h2> -->
+			<div class="d-flex justify-content-center" id="webcam">
+				<img class="py-4" src="{{ url_for('video_feed') }}">
+			</div>
+		</div>
+	</div>
+	<div class="text-center" id="greetings-div">
+		<h3 id="greetings"></h3>
+		<h3 id="pose"></h3>
+		<h3 id="granted">Access Granted</h3>	
+	</div>
+</div>
+<!-- <script type="text/javascript" src="{{ url_for('static', filename='js/websocket.js') }}"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/greeting.js') }}"></script>
+</body>
+</html>
