@@ -2,7 +2,7 @@ from app import app, socketio
 from flask import render_template, jsonify, request, redirect, Response
 from flask_socketio import emit, send
 from pymongo import MongoClient
-from app.camera import VideoCamera
+from app.face_rec import VideoCamera
 from app.pose_module import FacePosition
 from bson.objectid import ObjectId
 from PIL import Image
@@ -23,8 +23,6 @@ import random
 import time
 import string
 
-
-# cap = cv2.VideoCapture(0)
 cap = WebcamVideoStream(src=2).start()
 
 # db initialize
@@ -182,19 +180,15 @@ def gen():
 
     a = ['right', 'left']
 
-    # factory = PiGPIOFactory('192.168.0.103')
-    # red = LED(17, pin_factory = factory)
+    factory = PiGPIOFactory('192.168.0.103')
+    solenoid = LED(17, pin_factory = factory)
     random_one = random.choice(a)
 
     timeout = 20
     countdown = timeout
-
-    fps = FPS().start()
     
     time.sleep(2)
     while True:
-        fps.update()
-
         countdown -= 1
 
         head_pose = pose.run()
@@ -203,9 +197,6 @@ def gen():
         print(random_one)
 
         if len(frame[1]) >= 1 and status:
-            # print('HELLO {}'.format(frame[1][0]))
-            # print('look to your {}'.format(random_one))
-
             header = 'look to your {}'.format(random_one)
 
             socketio.emit('name', {'oi':frame[1][0]})
@@ -223,9 +214,9 @@ def gen():
             
             socketio.emit('access')
 
-            # red.on()
-            # time.sleep(1)
-            # red.off()
+            solenoid.on()
+            time.sleep(1)
+            solenoid.off()
             time.sleep(1)
 
             socketio.emit('reload')
@@ -233,9 +224,6 @@ def gen():
             status = False
 
             gen()
-
-        fps.stop()
-        # print("[INFO] approx. FPS: {:.2f}".format(fps.fps()))
 
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame[0] + b'\r\n\r\n')
@@ -250,11 +238,4 @@ def video_feed():
                     mimetype = 'multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == '__main__':
-    # app.run(host = '10.10.10.10', port = '5000', debug = True, threaded = True, ssl_context = 'adhoc')
     socketio.run(app, threaded = True, ssl_context = 'adhoc')
-
-
-"""
-TO DO: 
-2. DELETE SPESIFIC NAME AND ENCODING )
-"""

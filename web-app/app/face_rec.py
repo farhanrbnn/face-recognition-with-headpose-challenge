@@ -23,9 +23,7 @@ class VideoCamera(object):
 
 		recognize = []
 		count_bbox = []
-
-		# print(topp, rightt, bottomm, leftt)
-
+		
 		process_video = True
 
 		if process_video:
@@ -39,19 +37,6 @@ class VideoCamera(object):
 				top, right, bottom, left = face_location
 
 				count_bbox.append(face_location)
-
-				# if len(count_bbox) == 2:
-				# 	top_one, right_one, bottom_one, left_one = count_bbox[0]
-				# 	top_two, right_two, bottom_two, left_two = count_bbox[1]
-
-				# 	length_bbox_one = left_one - right_one
-				# 	width_bbox_one = top_one - bottom_one
-
-				# 	length_bbox_two = left_two - right_two
-				# 	width_bbox_two = top_two - bottom_two
-
-				# 	print('AREA BOUNDING BOX 1: {}'.format(length_bbox_one*width_bbox_one))
-				# 	print('AREA BOUNDING BOX 2: {}'.format(length_bbox_two*width_bbox_two))
 
 				cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
 
