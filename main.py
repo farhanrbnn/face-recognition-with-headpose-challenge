@@ -24,7 +24,7 @@ def main():
     while True:
         countdown -= 1
 
-        # pose = head.run()
+        pose = head.run()
         recog_face = recognition.get_frame()
 
         print(countdown)
