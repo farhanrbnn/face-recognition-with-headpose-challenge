@@ -1,5 +1,5 @@
 # face-recognition-with-headpose-challenge
-face recognition for door access security system that works on Raspberry Pi. using HOG method and head pose estimation for second layer security. 
+this is a web based application for face recognition door access security system that works on Raspberry Pi. using HOG method and head pose estimation for second layer security. 
 
 ## Requirements
 1. OpenCV
